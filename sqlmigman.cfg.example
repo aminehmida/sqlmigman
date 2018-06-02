@@ -1,0 +1,14 @@
+[sql]
+host = localhost
+user = root
+password = p@$$w0rD
+db = main
+
+[migration]
+# Directory containing migration scripts
+# scripts_dir = /var/dbmig/
+script_regexp = (\d+)\D*\.sql
+apply_cmd = mysql $(-u %user%) $(-p %password%) $(-h %host%) $( %db%) < %script%
+version_cmd = mysql $(-u %user%) $(-p %password%) $(-h %host%) $( %db%) -e "SELECT version from version"
+update_cmd =  mysql $(-u %user%) $(-p %password%) $(-h %host%) $( %db%) -e "update version set version=%version%"
+
