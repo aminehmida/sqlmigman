@@ -20,3 +20,4 @@ pytest-mock==1.10.0
 singledispatch==3.4.0.3
 six==1.11.0
 wrapt==1.10.11
+pycodestyle

@@ -1,4 +1,4 @@
-# SQL (Mig)ration (Man)ager
+# SQL (Mig)ration (Man)ager [![Build Status](https://travis-ci.com/aminehmida/sqlmigman.svg?branch=master)](https://travis-ci.com/aminehmida/sqlmigman)
 
 Highly extensible tool to manage SQL database schema migration. Can support MySql/Postgrasql ...
 
