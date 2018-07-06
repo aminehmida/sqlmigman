@@ -41,7 +41,7 @@ parser.add_argument('--mig-cmd',
                     help='Migration command template')
 parser.add_argument('--mig-regexp',
                     '-r',
-                    default='(\d+)\D*\.sql',
+                    default=r'(\d+)\D*\.sql',
                     help='Regular expression used to match and '
                          'extract schema version '
                          'from .sql upgrade script. '

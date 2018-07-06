@@ -9,7 +9,7 @@ import sqlmigman.core as core
 @pytest.fixture
 def smm(mocker):
     mig_scripts_dir = '/test'
-    mig_scripts_regexp = '(\d+)\D*\.sql'
+    mig_scripts_regexp = r'(\d+)\D*\.sql'
     sql_host = 'localhost'
     sql_user = 'root'
     sql_password = 'p@ssw0rd'

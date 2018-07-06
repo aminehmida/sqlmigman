@@ -10,7 +10,7 @@ def transform(template, *args):
             # Find a way to not passe None values
             if value is None:
                 continue
-            regex = '\$\((.*?)%%%s%%(.*?)\)' % name
+            regex = r'\$\((.*?)%%%s%%(.*?)\)' % name
             for m in re.finditer(regex, templ):
                 old = ''.join(['$(', m.group(1),
                                '%', name, '%',
@@ -20,6 +20,6 @@ def transform(template, *args):
             templ = templ.replace(''.join(['%', name, '%']), str(value))
 
     # Cleaning undefined $( -flag %param%) and %param%
-    templ = re.sub('\$\(.*?\)', '', templ)
-    templ = templ = re.sub('%\w+%', '', templ)
+    templ = re.sub(r'\$\(.*?\)', '', templ)
+    templ = templ = re.sub(r'%\w+%', '', templ)
     return templ
