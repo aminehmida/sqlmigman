@@ -2,9 +2,11 @@
 
 Highly extensible tool to manage SQL database schema migration. Can support MySql/Postgrasql ...
 
+**Note:** This is still an alpha version. Expect dragons!
+
 ## Installing
 
-Start by cloning this project. No external dependency was used and tested only with python 2.7.
+Start by cloning this project. No external dependency was used. Tested and working in python 2.7 and 3.6
 
 ## Getting Started
 
@@ -43,7 +45,6 @@ Start by installing `requirements_dev.txt` and run `pycodestyle --show-pep8 *.py
 ## TODO:
 - Add support for environment variables.
 - Add `--dry-run`
-- Check if this will work with python3
 - Build docker container
 - Add `--config` flag
 - Automate style and unit tests

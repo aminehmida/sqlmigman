@@ -123,7 +123,7 @@ def main():
     # Extracting existing database version
     try:
         current_db_version = sqlmigman.current_schema_version()
-    except ExecError, e:
+    except ExecError as e:
         logging.critical("Can not detect current "
                          "database schema version: %s" % str(e))
 
@@ -135,7 +135,7 @@ def main():
                 logging.info("%s applied with success" % script['path'])
                 logging.debug("stdout for appling %s: %s" %
                               (script['path'], stdout))
-            except ExecError, e:
+            except ExecError as e:
                 logging.error("Failed to apply %s "
                               "with error: %s" % (script['path'], str(e)))
                 if not args.continue_on_fail:
@@ -145,7 +145,7 @@ def main():
             else:
                 try:
                     sqlmigman.update_schema_version(script['version'])
-                except ExecError, e:
+                except ExecError as e:
                     logging.critical("Can not update "
                                      "database schema version: %s" % str(e))
 
