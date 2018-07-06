@@ -12,4 +12,4 @@ def run_in_shell(cmd):
     if proc.returncode != 0:
         raise ExecError(err.decode('utf-8'))
 
-    return out
+    return out.decode('utf-8')

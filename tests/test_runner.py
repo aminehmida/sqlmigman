@@ -1,5 +1,5 @@
 """Test sqlmigman runner"""
-import unittest
+import pytest
 
 from sqlmigman import runner
 
@@ -15,11 +15,6 @@ def test_run_in_shell_sucess():
 
 # TODO: Find more pythonic way to test this (with unittest?)
 def test_run_in_shell_fail():
-    try:
+    with pytest.raises(runner.ExecError) as e:
         runner.run_in_shell(TEST_FAIL_CMD)
-    except runner.ExecError, e:
-        assert TEST_FAIL_CMD_OUTPUT in str(e)
-        return
-    else:
-        assert False, "Wrong exception"
-    assert False, "No exception"
+    assert TEST_FAIL_CMD_OUTPUT in str(e)
