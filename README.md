@@ -29,7 +29,48 @@ version_cmd = mysql $(-u %user% )$(-p %password% )$(-h %host% )%db% -e "SELECT v
 version_update_cmd = mysql $(-u %user% )$(-p %password% )$(-h %host% )%db% -e "UPDATE version SET version=%version%"
 ```
 
-**Note:** All configs can be passed using command line. Type `python launch.py -h` to find matching arguments names.
+**Note:** All configs can be passed using command line. Type `python launch.py -h` to find matching arguments names:
+
+```
+usage: launch.py [-h] [--mig-dir MIG_DIR] [--sql-host SQL_HOST]
+                 [--sql-user SQL_USER] [--sql-password SQL_PASSWORD]
+                 [--sql-db SQL_DB] [--continue-on-fail CONTINUE_ON_FAIL]
+                 [--mig-cmd MIG_CMD] [--mig-regexp MIG_REGEXP]
+                 [--mig-update-cmd MIG_UPDATE_CMD]
+                 [--mig-version-cmd MIG_VERSION_CMD]
+
+Database schema upgrade manager.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --mig-dir MIG_DIR, -d MIG_DIR
+                        Directory where .sql file are located
+  --sql-host SQL_HOST, -s SQL_HOST
+                        Sql server host or ip address.
+  --sql-user SQL_USER, -u SQL_USER
+                        Database user name.
+  --sql-password SQL_PASSWORD, -p SQL_PASSWORD
+                        Database user password.
+  --sql-db SQL_DB, -n SQL_DB
+                        Database name
+  --continue-on-fail CONTINUE_ON_FAIL, -f CONTINUE_ON_FAIL
+                        Continue upgrade when intermediary failure is
+                        detected.
+  --mig-cmd MIG_CMD, -c MIG_CMD
+                        Migration command template
+  --mig-regexp MIG_REGEXP, -r MIG_REGEXP
+                        Regular expression used to match and extract schema
+                        version from .sql upgrade script. Default will match
+                        <version><name>.sql
+  --mig-update-cmd MIG_UPDATE_CMD, -t MIG_UPDATE_CMD
+                        This command will be run when all update script are
+                        applied with success. Use a syntax simular to --arg-
+                        cmd with addition of %version% variablethat contains
+                        version of the latest script applied
+  --mig-version-cmd MIG_VERSION_CMD, -v MIG_VERSION_CMD
+                        This command will be run to extract current database
+                        schema version. Same syntax as --mig-cmd
+```
 
 ### Command templates:
 You can use two types of command template formats:
